@@ -31,19 +31,25 @@ namespace MvcMovie.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Genre")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Rating")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("character varying(5)");
 
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("date");
 
                     b.Property<string>("Title")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)");
 
                     b.HasKey("Id");
 
